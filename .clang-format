@@ -1,0 +1,16 @@
+---
+Language:        Cpp
+BasedOnStyle:  Google
+AlignConsecutiveMacros: true
+AlignConsecutiveAssignments: true
+AlignEscapedNewlines: Right
+AlignTrailingComments: true
+ColumnLimit:     80
+Cpp11BracedListStyle: true
+IndentPPDirectives: BeforeHash
+IndentWidth:     2
+MaxEmptyLinesToKeep: 2
+Standard:        c++17
+TabWidth:        2
+UseTab:          Never
+...
