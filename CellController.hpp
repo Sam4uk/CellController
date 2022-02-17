@@ -18,7 +18,6 @@ class CellController : public QObject {
   void run() {
     CellController::Command command{NO_COMMAND};
     for (;;) {
-      QTest::qWait(200);
       switch (command) {
         case CHECK_1:
           qDebug() << "CHECK_1";
@@ -39,12 +38,15 @@ class CellController : public QObject {
         default:  ///< NO_COMMAND
           if (tasks.isEmpty()) {
             if (randomBetween(Command::CHECK_1, Command::CHECK_2,
-                              QDateTime::currentMSecsSinceEpoch()) == 1) {
+                              QDateTime::currentMSecsSinceEpoch()) ==
+                Command::CHECK_1) {
               command = CHECK_1;
             } else {
               command = CHECK_2;
             }
-          } else {
+          }
+
+          else {
             command = OPEN_CELL;
           }
           break;
@@ -66,4 +68,3 @@ class CellController : public QObject {
 
   QQueue<QString> tasks;
 };
-
